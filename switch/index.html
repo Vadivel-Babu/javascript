@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>switch</title>
+    <style>
+      * {
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .switch {
+        width: 100px;
+        height: 50px;
+        border: 2px solid black;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        display: flex;
+        align-items: center;
+      }
+      .switch.active {
+        background-color: black;
+      }
+      .circle {
+        transition: all 0.3s ease-in-out;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background-color: aqua;
+        transform: translateX(0);
+        transition: all 0.2s ease-in-out;
+        margin: 1px;
+      }
+      .switch.active > .circle {
+        transform: translateX(48px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="switch">
+      <div class="circle"></div>
+    </div>
+    <script>
+      const switchs = document.querySelector(".switch");
+
+      switchs.addEventListener("click", (e) => {
+        if (switchs.classList.contains("active")) {
+          switchs.classList.remove("active");
+          document.querySelector("body").style.backgroundColor = "";
+        } else {
+          switchs.classList.add("active");
+          document.querySelector("body").style.backgroundColor = "red";
+        }
+      });
+    </script>
+  </body>
+</html>

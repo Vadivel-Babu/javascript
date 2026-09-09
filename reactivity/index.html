@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>hello</h1>
+    <script>
+      let activeEffect = null;
+
+      function signal(initialValue) {
+        let value = initialValue;
+        const subscribers = new Set();
+
+        return {
+          get value() {
+            if (activeEffect) {
+              subscribers.add(activeEffect);
+            }
+            return value;
+          },
+
+          set value(newValue) {
+            if (value !== newValue) {
+              value = newValue;
+              subscribers.forEach((effect) => {
+                effect();
+              });
+            }
+          },
+        };
+      }
+
+      function effect(fn) {
+        activeEffect = fn;
+
+        fn();
+
+        activeEffect = null;
+
+        return fn;
+      }
+
+      const count = signal(0);
+
+      effect(() => {
+        console.log("effect 1 Count:", count.value);
+      });
+      effect(() => {
+        console.log("effect 2 Count:", count.value * 2);
+      });
+
+      console.log("Changing count...");
+
+      count.value = 5;
+    </script>
+  </body>
+</html>
