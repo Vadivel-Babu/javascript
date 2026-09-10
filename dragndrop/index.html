@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>D N D</title>
+    <style>
+      body {
+        display: flex;
+        gap: 20px;
+        padding: 50px;
+        font-family: sans-serif;
+      }
+
+      .box {
+        width: 200px;
+        height: 200px;
+        border: 2px dashed #ccc;
+        background-color: #f9f9f9;
+        padding: 10px;
+      }
+
+      .item {
+        padding: 15px;
+        background-color: #3498db;
+        margin-top: 4px;
+        color: white;
+        cursor: grab;
+        border-radius: 4px;
+      }
+
+      /* Optional styling when dragging */
+      .item:active {
+        cursor: grabbing;
+        opacity: 0.5;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- The Drop Zones (Containers) -->
+    <div class="box" id="left-box">
+      <!-- The Draggable Item -->
+      <div class="item" id="draggable-item" draggable="true">Drag Me!</div>
+      <div class="item" id="draggable-item" draggable="true">Me!</div>
+    </div>
+
+    <div class="box" id="right-box"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
