@@ -16,3 +16,30 @@
     background-color: rgb(255, 136, 0);
   }
 }
+
+.circularprogress {
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+  background-image: conic-gradient(
+    orange 0% 30%,
+    rgba(255, 212, 139, 0.729) 0% 100%
+  );
+  position: relative;
+  &::after {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 80%;
+    border-radius: 100%;
+    position: absolute;
+    content: "50%";
+    font-size: 20px;
+    font-weight: 700;
+    background-color: white;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
