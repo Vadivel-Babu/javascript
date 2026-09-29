@@ -1,0 +1,21 @@
+.tabs {
+  border: 1px solid black;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  width: max-content;
+}
+.tab {
+  padding: 5px 10px;
+  cursor: pointer;
+  border-right: 1px solid black;
+  &.active {
+    background-color: aqua;
+  }
+
+  &:last-child {
+    border: none;
+  }
+}
